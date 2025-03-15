@@ -13,17 +13,49 @@ if (isset($_POST['register'])) { // Mengecek jika form register disubmit
 }
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title> <!-- Judul halaman -->
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <form action="register.php" method="POST">                          <!-- Form untuk registrasi, data akan dikirim dengan metode POST ke register.php -->
-        <p>Email : <input type="text" name="txt_email" required></p>    <!-- Input email, wajib diisi -->
-        <p>Password : <input type="password" name="txt_pass" required></p> <!-- Input password, wajib diisi -->
-        <p>Nama : <input type="text" name="txt_nama" required></p>      <!-- Input nama, wajib diisi -->
-        <button type="submit" name="register">Register</button>         <!-- Tombol untuk submit form -->
-    </form>
-    <p><a href="login.php">Login</a></p> <!-- Link ke halaman login -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Register</h2> <!-- Heading untuk halaman registrasi -->
+                <form action="register.php" method="POST" class="form-group"> <!-- Form dengan class Bootstrap -->
+                    <div class="form-group">
+                        <label for="txt_email">Email:</label>
+                        <input type="email" name="txt_email" class="form-control" required> <!-- Input email dengan class form-control -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_pass">Password:</label>
+                        <input type="password" name="txt_pass" class="form-control" required> <!-- Input password dengan class form-control -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txt_nama">Nama:</label>
+                        <input type="text" name="txt_nama" class="form-control" required> <!-- Input nama dengan class form-control -->
+                    </div>
+
+                    <button type="submit" name="register" class="btn btn-primary btn-block">Register</button> <!-- Tombol submit dengan class Bootstrap -->
+                </form>
+
+                <p class="text-center mt-3">
+                    Sudah punya akun? <a href="login.php">Login</a> <!-- Link ke halaman login -->
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

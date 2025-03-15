@@ -36,15 +36,43 @@ if (isset($_POST['submit'])) {      // Mengecek jika form login disubmit
 }
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title> <!-- Judul halaman -->
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <form action="login.php" method="POST"> <!-- Form untuk login, data akan dikirim dengan metode POST ke login.php -->
-        <p>Email : <input type="text" name="txt_email" required></p> <!-- Input email, wajib diisi -->
-        <p>Password : <input type="password" name="txt_pass" required></p> <!-- Input password, wajib diisi -->
-        <button type="submit" name="submit">Sign In</button> <!-- Tombol untuk submit form -->
-    </form>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h2 class="text-center">Login</h2> <!-- Heading login -->
+                <form action="login.php" method="POST" class="form-group"> <!-- Form untuk login, dengan class Bootstrap -->
+                    <div class="form-group">
+                        <label for="txt_email">Email:</label>
+                        <input type="email" name="txt_email" class="form-control" required> <!-- Input email dengan kelas form-control -->
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_pass">Password:</label>
+                        <input type="password" name="txt_pass" class="form-control" required> <!-- Input password dengan kelas form-control -->
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block">Sign In</button> <!-- Tombol submit dengan class btn btn-primary -->
+                </form>
+                <?php if (isset($error)): ?> <!-- Menampilkan pesan error jika ada -->
+                    <div class="alert alert-danger mt-3">
+                        <?php echo $error; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
